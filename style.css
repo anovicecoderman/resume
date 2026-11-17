@@ -1,0 +1,108 @@
+/* VARIABLES: colours, fonts and the spacing scale used everywhere */
+:root {
+  --bg: #212121;
+  --surface: #2B2B2B;
+  --line: #444444;
+  --text: #F2F2F2;
+  --text-2: #C9C9C9;
+  --accent: #A8CBE8;
+  --paper: #FFFFFF;
+  --ink: #111111;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", Arial, sans-serif;
+  --s1: 0.5rem;
+  --s2: 1.5rem;
+  --s3: 4rem;
+  --edge: 1.5rem;
+}
+
+/* ELEMENTS: base styles for the page, headings, text, lists, links and the photo */
+html { scroll-padding-top: 5rem; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 1.0625rem/1.6 var(--sans); }
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.2; }
+h1 { font-size: 3rem; margin: 0 0 var(--s1); }
+h2 { font-size: 2rem; color: var(--accent); margin: 0 0 var(--s2); }
+h3 { font-size: 1.375rem; margin: 0 0 var(--s1); }
+p, li { max-width: 65ch; }
+p { margin: 0 0 var(--s1); }
+ul { margin: 0 0 var(--s2); padding-left: 1.25rem; }
+li { margin-bottom: var(--s1); }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:hover { color: var(--text); }
+a:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+img { max-width: 100%; }
+section { padding-block: var(--s3); }
+
+/* LAYOUT: centred column used by the nav bar and every section */
+.wrap { max-width: 60rem; margin-inline: auto; padding-inline: var(--edge); }
+
+/* NAVIGATION BAR: flexbox bar that stays at the top of the screen */
+header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--s1) var(--s2); padding-block: var(--s1); }
+.brand { display: flex; align-items: center; min-height: 44px; color: var(--text); font: 600 1.25rem var(--serif); text-decoration: none; }
+.nav-links { display: flex; flex-wrap: wrap; }
+.nav-link { display: flex; align-items: center; min-height: 44px; padding: 0 0.75rem; color: var(--text-2); text-decoration: none; }
+.brand:hover, .nav-link:hover { color: var(--accent); }
+
+/* BUTTONS AND LINKS: .button is the filled action, .button-outline the quieter one, .text-link a plain link */
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 1.25rem; background: var(--accent); border: 1px solid var(--accent); border-radius: 6px; color: var(--bg); font-weight: 600; text-decoration: none; }
+.button-outline { background: transparent; color: var(--accent); }
+.button:hover { background: var(--text); border-color: var(--text); color: var(--bg); }
+.text-link { display: inline-flex; align-items: center; min-height: 44px; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s1) var(--s2); margin: var(--s2) 0; }
+
+/* HERO (#hero): text on the left, round photo on the right */
+#hero { display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; padding-block: 3rem var(--s3); }
+.tagline { margin-bottom: var(--s2); font: 1.5rem/1.3 var(--serif); }
+.accent { color: var(--accent); }
+.photo { flex-shrink: 0; width: 220px; height: 220px; object-fit: cover; border: 1px solid var(--line); border-radius: 50%; }
+
+/* ABOUT (#about): short paragraphs with space between thoughts */
+#about p { margin-bottom: var(--s2); }
+#about .idea { margin-bottom: var(--s1); font: 1.5rem/1.3 var(--serif); }
+.meta { color: var(--text-2); font-size: 0.9rem; }
+
+/* CARDS (.cards, .card): flat outlined boxes in a grid, used for education and projects */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--s2); }
+#projects .cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.card { display: flex; flex-direction: column; padding: var(--s2); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.card .text-link { margin-top: auto; }
+.lead { margin-bottom: var(--s2); }
+
+/* RESUME (#resume): the paper resume on a white sheet */
+.sheet { max-width: 48rem; padding: 2.5rem; background: var(--paper); color: var(--ink); font-size: 0.95rem; line-height: 1.5; }
+.sheet h3 { margin: 0 0 var(--s1); font-size: 2rem; }
+.sheet h4 { margin: var(--s2) 0 var(--s1); padding-bottom: 0.25rem; border-bottom: 1px solid var(--ink); font-size: 1.125rem; }
+.sheet li { margin-bottom: 0.25rem; }
+.sheet a { color: var(--ink); }
+.sheet a:hover { color: var(--line); }
+.role { margin: var(--s1) 0 0.25rem; }
+
+/* CONTACT (#contact): email buttons, LinkedIn link and the address as text */
+#contact .actions { margin-top: 0; }
+#contact p { overflow-wrap: anywhere; }
+
+/* PHONES: screens narrower than 700px */
+@media (max-width: 699px) {
+  html { scroll-padding-top: 7rem; }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  .nav { flex-wrap: wrap; }
+  .nav-links { order: 3; width: 100%; }
+  .nav-link { padding: 0 0.5rem; }
+  #hero { flex-direction: column-reverse; align-items: flex-start; gap: var(--s2); }
+  .photo { width: 150px; height: 150px; }
+  .sheet { padding: var(--s2); }
+}
+
+/* PRINT: only the resume, black on white, on one A4 page */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff; color: #000; font-size: 10pt; line-height: 1.35; }
+  header, main > section:not(#resume), .no-print { display: none; }
+  #resume { max-width: none; margin: 0; padding: 0; }
+  .sheet { max-width: none; padding: 0; background: #fff; color: #000; font-size: 10pt; }
+  .sheet h3 { font-size: 20pt; }
+  .sheet h4 { margin-top: 12pt; border-color: #000; font-size: 11pt; }
+  .sheet a { color: #000; }
+}
