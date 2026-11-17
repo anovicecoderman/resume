@@ -94,7 +94,18 @@ header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bo
   .photo { width: 150px; height: 150px; }
   .sheet { padding: var(--s2); }
 }
-
+/* PRINT: only the resume, white text on black, on one A4 page */
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { background: #000; color: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 10pt; line-height: 1.35; }
+  header, main > section:not(#resume), .no-print { display: none; }
+  #resume { max-width: none; margin: 0; padding: 12mm; }
+  .sheet { max-width: none; padding: 0; background: #000; color: #fff; font-size: 10pt; }
+  .sheet h3 { font-size: 20pt; }
+  .sheet h4 { margin-top: 12pt; border-color: #fff; font-size: 11pt; }
+  .sheet a { color: #fff; }
+}
 /* PRINT: only the resume, black on white, on one A4 page */
 @media print {
   @page { size: A4; margin: 12mm; }
