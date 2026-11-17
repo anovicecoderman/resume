@@ -6,8 +6,8 @@
   --text: #F2F2F2;
   --text-2: #C9C9C9;
   --accent: #A8CBE8;
-  --paper: #FFFFFF;
-  --ink: #111111;
+  --paper: #000000;
+  --ink: #FFFFFF;
   --serif: "Fraunces", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
   --s1: 0.5rem;
@@ -75,7 +75,7 @@ header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bo
 .sheet h4 { margin: var(--s2) 0 var(--s1); padding-bottom: 0.25rem; border-bottom: 1px solid var(--ink); font-size: 1.125rem; }
 .sheet li { margin-bottom: 0.25rem; }
 .sheet a { color: var(--ink); }
-.sheet a:hover { color: var(--line); }
+.sheet a:hover { color: var(--accent); }
 .role { margin: var(--s1) 0 0.25rem; }
 
 /* CONTACT (#contact): email buttons, LinkedIn link and the address as text */
